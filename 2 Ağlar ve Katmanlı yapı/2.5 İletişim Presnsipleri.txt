@@ -1,0 +1,9 @@
+Protokol, cihazların nasıl iletişim kuracağını belirleyen kurallar dizisidir. Bu kurallar mesajın biçimini, adreslemeyi, gönderim/alım işlemlerini, hata kontrolünü ve iletişim sırasını tanımlar.
+
+TCP bağlantı yönelimlidir; veri aktarımından önce bağlantı kurar ve teslim/akış kontrolü sağlar.
+
+UDP bağlantısızdır; düşük ek yükle datagram gönderir ve TCP gibi teslim garantisi sağlamaz.
+
+Kapsülleme: Üst katmandan gelen veriye alt katmanlarda gerekli başlık/fragman bilgileri eklenmesidir.
+
+Dekapsülleme: Alıcı tarafta katmanların kendi bilgilerini kaldırarak veriyi üst katmana teslim etmesidir.

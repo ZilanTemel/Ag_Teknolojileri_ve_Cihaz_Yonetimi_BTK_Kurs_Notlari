@@ -1,0 +1,195 @@
+FİZİKSEL KATMAN (PHYSICAL LAYER) DERS NOTLARI
+
+1. Katman Eşleşmesi ve Kapsülleme (PDU) Yapısı
+
+Katmanlar ve PDU (Protocol Data Unit) Birimleri
+* Uygulama Katmanı (OSI Katman 7, 6, 5 / TCP/IP Uygulama): Veri (Data)[cite: 21]
+* Taşıma Katmanı (OSI Katman 4 / TCP/IP Taşıma): Segment / Datagram[cite: 21]
+* Ağ Katmanı (OSI Katman 3 / TCP/IP Internet): Paket (Packet)[cite: 21]
+* Veri Bağı Katmanı (OSI Katman 2 / TCP/IP Ağ Erişim): Çerçeve (Frame)[cite: 21]
+* Fiziksel Katman (OSI Katman 1 / TCP/IP Ağ Erişim): Bitler (0 ve 1 dizileri)[cite: 21]
+
+
+2. Fiziksel Katmanın Genel Özellikleri ve Görevleri
+
+Donanım Düzeyi Standartlar
+* Fiziksel katman standartları donanımda (hardware) uygulanır[cite: 22].
+* Fiziksel kablolar, konektörler, voltaj seviyeleri, hızlar ve zamanlama gibi unsurlar standart kuruluşları tarafından belirlenir[cite: 22].
+
+Fiziksel Katmanın Temel Görevleri
+* Bit Düzeyinde İletim: Verileri (1 ve 0'lardan oluşan bit dizilerini) elektriksel, optik veya elektromanyetik sinyallere çevirerek iletim ortamından aktarır[cite: 23].
+* Fiziksel Bağlantının Kurulması ve Sonlandırılması: Cihazlar arasındaki fiziksel kablo veya sinyal bağlantısını başlatır ve sonlandırır[cite: 23].
+* Veri İletim Hızı (Bit Rate): İletim ortamında bir saniyede aktarılacak bit miktarını (bps - bit per second) belirler[cite: 23].
+* Fiziksel Topoloji: Cihazların (hub, switch, router, bilgisayar) fiziksel yerleşim biçimini belirler (yıldız, halka, veri yolu vb.)[cite: 23].
+* Sinyal Şekli ve Kodlama: Verilerin hangi sinyal biçiminde (analog veya dijital) iletileceğini ve nasıl kodlanacağını (NRZ, Manchester vb.) tanımlar[cite: 24].
+* Fiziksel Medya ve Özellikleri: Bakır kablo, fiber optik veya kablosuz ortamların teknik özelliklerini belirler[cite: 24].
+* Voltaj Seviyeleri ve Zamanlama: Elektrik sinyallerinin voltaj değerlerini, frekanslarını ve zamanlama aralıklarını tanımlar[cite: 24].
+* Fiziksel Bağlantı Arabirimleri: Konektör tipleri, pin dizilimleri ve kablo standartlarını (RJ45, RJ11, LC konektör vb.) kapsar[cite: 24].
+
+
+3. Ağ Medyası Türleri
+
+Ağ medyası, veri iletişimini sağlayan fiziksel veya kablosuz taşıyıcı ortamlardır[cite: 25]. Modern ağlarda üç ana medya türü kullanılır[cite: 25]:
+* Bakır Kablolar: Veriyi elektrik sinyalleri olarak iletir[cite: 23, 24].
+* Kablosuz İletim: Veriyi elektromanyetik dalgaların belirli frekans modülasyonlarıyla iletir (Wi-Fi, radyo dalgaları)[cite: 25].
+* Fiber Optik Kablolar: Cam veya plastikten yapılmış çok ince tellerden (fiberlerden) oluşur; veriyi ışık sinyalleri halinde ışık hızına yakın hızlarda iletir[cite: 25, 28].
+
+
+4. Bakır Kablo Tipleri ve Özellikleri
+
+Koaksiyel Kablo (Eş Eksenli)
+Dört katmanlı bir yapıdan oluşur[cite: 27]:
+1. Merkezde iletken bir çekirdek (genellikle bakır veya alüminyum tel)[cite: 27]
+2. Çekirdeği saran yalıtkan tabaka[cite: 27]
+3. Yalıtkan tabaka üzerinde elektromanyetik parazitlerden (EMI) koruma sağlayan örgülü metal/alüminyum kafes[cite: 27]
+4. En dışta koruyucu plastik kaplama[cite: 27]
+
+Çift Bükümlü (Twisted Pair) Kablolar
+* UTP (Unshielded Twisted Pair): Çift bükümlü, yalıtımlı bakır tellerden oluşur, koruyucu metal kalkanı yoktur (kalkansız)[cite: 26, 31].
+* STP (Shielded Twisted Pair): Çift bükümlü teller üzerinde EMI parazitine karşı metal folyo/kalkan barındırır (kalkanlı)[cite: 26, 31].
+
+Bükümlü Kablo Kategorileri (Maksimum Hız Kapasiteleri)
+* Kategori 1 (Cat1): Ses iletiminde kullanılır[cite: 26]
+* Kategori 2 (Cat2): 4 Mbit/saniye[cite: 26]
+* Kategori 3 (Cat3): 16 Mbit/saniye[cite: 26]
+* Kategori 4 (Cat4): 20 Mbit/saniye[cite: 26]
+* Kategori 5 / 5e (Cat5/Cat5e): 100 Mbit/saniye[cite: 26]
+* Kategori 6 (Cat6): 1000 Mbit/saniye (1 Gbps)[cite: 26]
+
+
+5. Fiber Optik Kablo Çeşitleri
+
+Single Mode Fiber (SMF - Tek Modlu)
+* Çekirdek Çapı: Çok incedir (yaklaşık 9 mikron)[cite: 29].
+* Işık Yolu: Işık tek bir doğrusal yol izler[cite: 29].
+* Kullanım Amacı: Uzun mesafeli ve yüksek hızlı veri aktarımı için idealdir[cite: 29].
+* Kullanım Alanı: Büyük ağlar, şehirler arası omurgalar ve veri merkezleri arası bağlantılar[cite: 29].
+
+Multi Mode Fiber (MMF - Çok Modlu)
+* Çekirdek Çapı: SMF'ye göre daha kalındır (yaklaşık 50 - 62.5 mikron)[cite: 30].
+* Işık Yolu: Işık çekirdek içinde yansıyarak birden çok yol izleyebilir[cite: 30].
+* Kullanım Amacı: Daha kısa mesafeli bağlantılarda kullanılır[cite: 30].
+* Avantajı: SMF'ye göre daha ucuzdur, genellikle bina içi ve yerel kampüs ağlarında tercih edilir[cite: 30].
+
+
+6. Kablo Tipleri Detaylı Kıyaslama Tablosu
+
+UTP (Unshielded Twisted Pair)
+* Yapı: Çift bükümlü, yalıtımlı bakır teller, kalkansız[cite: 31].
+* Bant Genişliği: 100 MHz'e kadar (Cat6 ile 10 Gbps'e kadar)[cite: 31].
+* Mesafe: 100 metre (Ethernet standardı)[cite: 31].
+* Gürültü ve EMI Direnci: Düşük (elektromanyetik girişime karşı hassas)[cite: 31].
+* Maliyet: Düşük[cite: 31].
+* Kurulum Kolaylığı: Kolay (hafif ve esnek)[cite: 31].
+* Ağırlık ve Boyut: Hafif ve ince[cite: 32].
+* Güvenlik: Düşük (sinyal dinlenebilir)[cite: 32].
+* Kullanım Alanları: Ev ağları, ofisler (Cat5e, Cat6)[cite: 32].
+* Avantajlar: Ucuz, yaygın, kolay kurulum[cite: 32].
+* Dezavantajlar: EMI'ye hassas, kısa mesafe[cite: 32].
+
+STP (Shielded Twisted Pair)
+* Yapı: Çift bükümlü, yalıtımlı bakır teller, kalkanlı[cite: 31].
+* Bant Genişliği: 600 MHz'e kadar (STP tiplerine bağlı)[cite: 31].
+* Mesafe: 100 metre (Ethernet standardı)[cite: 31].
+* Gürültü ve EMI Direnci: Yüksek (metal kalkan koruması sayesinde)[cite: 31].
+* Maliyet: Orta[cite: 31].
+* Kurulum Kolaylığı: Orta (kalkan nedeniyle bükülmesi biraz daha zor)[cite: 31].
+* Ağırlık ve Boyut: Orta (kalkan ekstra ağırlık ve kalınlık ekler)[cite: 32].
+* Güvenlik: Orta (kalkan sinyal sızıntısını biraz engeller)[cite: 32].
+* Kullanım Alanları: Endüstriyel ortamlar, fabrikalar, gürültülü alanlar[cite: 32].
+* Avantajlar: EMI koruması, daha az parazit[cite: 32].
+* Dezavantajlar: UTP'ye göre pahalı, kurulumu daha zor[cite: 32].
+
+Fiber Optik Kablo
+* Yapı: Cam veya plastik fiberler, ışık iletimli[cite: 31].
+* Bant Genişliği: 10 Gbps'tan 100 Gbps ve üzerine kadar[cite: 31].
+* Mesafe: 10 km'ye kadar (uzak mesafelerde)[cite: 31].
+* Gürültü ve EMI Direnci: Çok yüksek (elektromanyetik parazitlerden tamamen etkilenmez)[cite: 31].
+* Maliyet: Yüksek[cite: 31].
+* Kurulum Kolaylığı: Zor (hassas bağlantı ve özel sonlandırma gerektirir)[cite: 31].
+* Ağırlık ve Boyut: Çok hafif (ince fiberler)[cite: 32].
+* Güvenlik: Çok yüksek (fiziksel sinyalin dinlenmesi son derece zordur)[cite: 32].
+* Kullanım Alanları: Uzun mesafeli omurgalar, veri merkezleri[cite: 32].
+* Avantajlar: Çok yüksek hız, uzun mesafe, maksimum güvenlik[cite: 32].
+* Dezavantajlar: Pahalı malzeme, uzmanlık gerektiren işçilik[cite: 32].
+
+Koaksiyel Kablo
+* Yapı: Merkezi bakır iletken, yalıtımlı, kalkanlı[cite: 31].
+* Bant Genişliği: 10 Mbps'tan 1 Gbps'e kadar[cite: 31].
+* Mesafe: 500 metreye kadar (10Base2 standardı)[cite: 31].
+* Gürültü ve EMI Direnci: Orta (kalkanlı ancak koruma seviyesi sınırlı)[cite: 31].
+* Maliyet: Orta[cite: 31].
+* Kurulum Kolaylığı: Orta (kalın ve sert yapı)[cite: 31].
+* Ağırlık ve Boyut: Ağır ve kalın[cite: 32].
+* Güvenlik: Orta (kablonun içine girilerek sinyal dinlenebilir)[cite: 32].
+* Kullanım Alanları: Eski yerel ağlar, kablo TV (anten), analog güvenlik kameraları[cite: 32].
+* Avantajlar: Fiziksel olarak dayanıklı, eski sistemlerle geriye dönük uyumlu[cite: 32].
+* Dezavantajlar: Hantal yapı, sınırlı bant genişliği[cite: 32].
+
+
+7. Bakır Kablolama Standartları ve Bağlantı Şemaları
+
+EIA/TIA-568 Standardı
+Ağ kablosunun (Cat5e, Cat6 vb.) RJ45 konektörüne çakılmadan önce içindeki 8 renkli iletken telin sırası bu standarda göre yapılır[cite: 33].
+
+T568A Renk ve Pin Sıralaması
+* Pin 1: Beyaz / Yeşil (TX+)[cite: 36]
+* Pin 2: Yeşil (TX-)[cite: 36]
+* Pin 3: Beyaz / Turuncu (RX+)[cite: 36]
+* Pin 4: Mavi[cite: 36]
+* Pin 5: Beyaz / Mavi[cite: 36]
+* Pin 6: Turuncu (RX-)[cite: 36]
+* Pin 7: Beyaz / Kahverengi[cite: 36]
+* Pin 8: Kahverengi[cite: 36]
+
+T568B Renk ve Pin Sıralaması
+* Pin 1: Beyaz / Turuncu (TX+)[cite: 36]
+* Pin 2: Turuncu (TX-)[cite: 36]
+* Pin 3: Beyaz / Yeşil (RX+)[cite: 36]
+* Pin 4: Mavi[cite: 36]
+* Pin 5: Beyaz / Mavi[cite: 36]
+* Pin 6: Yeşil (RX-)[cite: 36]
+* Pin 7: Beyaz / Kahverengi[cite: 36]
+* Pin 8: Kahverengi[cite: 36]
+
+Veri İletimi Prensibi (TX ve RX)
+* Bir cihazın gönderici (TX - Transmit) pininden çıkan veri, karşı cihazın alıcı (RX - Receive) pinine ulaşmalıdır[cite: 36]. Hatalı veya ters bağlantıda veri iletişimi sağlanamaz ya da paket kayıpları yaşanır[cite: 36].
+
+Düz Kablo (Straight-Through Cable)
+* Yapısı: Kablonun her iki ucu da aynı standartta sonlandırılır (T568A - T568A ya da T568B - T568B)[cite: 34].
+* Kullanım Alanı: Farklı türdeki ağ cihazlarını birbirine bağlamak için kullanılır[cite: 34].
+* Örnek Bağlantılar:
+  - Bilgisayar ile Switch arası[cite: 34]
+  - Bilgisayar ile Modem / Hub arası[cite: 34]
+  - Switch ile Router arası[cite: 34]
+  - Router ile Hub arası[cite: 34]
+
+Çapraz Kablo (Cross-Over Cable)
+* Yapısı: Kablonun bir ucu T568A, diğer ucu ise T568B standardına göre sonlandırılır[cite: 35].
+* Kullanım Alanı: Aynı türdeki cihazları doğrudan birbirine bağlamak için kullanılır[cite: 35].
+* Örnek Bağlantılar:
+  - Bilgisayar ile Bilgisayar arası[cite: 35]
+  - Switch ile Switch arası[cite: 35]
+  - Hub ile Hub arası[cite: 35]
+  - Router ile Router arası[cite: 35]
+  - Bilgisayar ile Router arası[cite: 35]
+  - Hub ile Switch arası[cite: 35]
+
+
+8. Ağ Hız ve Performans Metrikleri
+
+Bant Genişliği (Bandwidth)
+* Tanım: Bir iletim ortamının belirli bir süre içinde taşıyabileceği teorik maksimum veri kapasitesidir[cite: 38].
+* Örnek: 100 Mbps'lik bir bağlantı, teorik olarak saniyede en fazla 100 milyon bit veri taşıyabilir[cite: 38].
+* Etkisi: İnternet erişim hızını, indirme/yükleme sürelerini ve genel ağ kapasitesini belirler[cite: 38].
+
+Gerçek Veri Aktarım Hızı (Throughput)
+* Tanım: Belirli bir zaman aralığında ağ üzerinden fiilen başarıyla aktarılan gerçek veri miktarıdır[cite: 38].
+* Farkı: Teorik bant genişliğinin aksine gecikme (latency), paket kaybı (packet loss) ve protokol yüklerini (overhead) hesaba katar[cite: 38].
+* Kapsamı: Fiziksel kapasiteye ek olarak Layer 1, Layer 2 ve Layer 3 etkilerini (çerçeve başlıkları, çarpışmalar, hata tekrarları) içerir; yani "gerçekte ulaşılan pratik hızdır"[cite: 38].
+
+Kullanışlı Veri Hızı (Goodput)
+* Tanım: Throughput içinde taşınan toplam veriden protokol ekleri (overhead) çıkarıldıktan sonra kullanıcı uygulamasına gerçekten ulaşan net yararlı veridir[cite: 39].
+* Formül / Mantık: Goodput = Throughput - Protokol Başlıkları (TCP/UDP, IP, Ethernet başlıkları ve yeniden iletilen hatalı paketler)[cite: 39].
+* Örnek: 60 Mbps'lik bir throughput değerinde 10 Mbps'lik kısım TCP/IP başlıkları gibi kontrol verisi ise, kullanıcı uygulamasına ulaşan goodput 50 Mbps olur[cite: 39].
+

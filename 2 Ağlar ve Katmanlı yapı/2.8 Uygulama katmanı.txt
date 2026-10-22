@@ -1,0 +1,86 @@
+
+1. OSI VE TCP/IP MODELLERİNİN KARŞILAŞTIRILMASI
+* Katman Eşleşmeleri:
+  - OSI Katman 7 (Uygulama) \
+  - OSI Katman 6 (Sunum)     --> TCP/IP: Uygulama Katmanı (Application)
+  - OSI Katman 5 (Oturum)   /
+  - OSI Katman 4 (Taşıma)   --> TCP/IP: Taşıma Katmanı (Transport)
+  - OSI Katman 3 (Ağ)       --> TCP/IP: Internet Katmanı
+  - OSI Katman 2 (Veri Bağı) \
+  - OSI Katman 1 (Fiziksel)   --> TCP/IP: Ağ Erişim Katmanı (Network Access)
+
+* TCP/IP Uygulama Katmanı Protokolleri:
+  - DNS  : Domain Name System
+  - HTTP : Hypertext Transfer Protocol
+  - SMTP : Simple Mail Transfer Protocol
+  - DHCP : Dynamic Host Configuration Protocol
+  - FTP  : File Transfer Protocol
+  - IMAP : Internet Message Access Protocol
+
+
+2. TCP/IP UYGULAMA KATMANI KARŞILAŞTIRMA TABLOSU
+
++ Özellik: Katman Sayısı
+  - OSI Modeli   : 3 ayrı katmana bölünür (7. Uygulama, 6. Sunum, 5. Oturum).
+  - TCP/IP Modeli: Tek bir katmanda toplanır (Uygulama Katmanı).
+
++ Özellik: Uygulama Katmanı (7)
+  - OSI Modeli   : Kullanıcıya en yakın katman, ağ hizmetlerini sunar (HTTP, SMTP, FTP vb.).
+  - TCP/IP Modeli: Bu görevler TCP/IP'nin Uygulama Katmanında bulunur.
+
++ Özellik: Sunum Katmanı (6)
+  - OSI Modeli   : Veri formatlama, şifreleme, sıkıştırma, kodlama.
+  - TCP/IP Modeli: TCP/IP'de ayrı değildir, uygulama protokollerinin içinde yapılır (örn. HTTPS'te şifreleme).
+
++ Özellik: Oturum Katmanı (5)
+  - OSI Modeli   : Oturum başlatma, sürdürme, sonlandırma, senkronizasyon.
+  - TCP/IP Modeli: TCP/IP'de bu görev de uygulama protokollerine dağılmıştır (örn. FTP'de oturum yönetimi).
+
++ Özellik: Kullanıcıyla Etkileşim
+  - OSI Modeli   : Dolaylı (katmanlar arası ayrım net).
+  - TCP/IP Modeli: Doğrudan (uygulama protokolleriyle entegre).
+
++ Özellik: Basitlik / Ayrıntı
+  - OSI Modeli   : Daha ayrıntılı ve teorik.
+  - TCP/IP Modeli: Daha basit ve pratik.
+
+
+3. HTTP (HYPERTEXT TRANSFER PROTOCOL) VE HTML
+Temel HTTP İstek Metotları:
+* GET  : Verilerin istemci tarafından talep edildiği bir istektir. Bir istemci (web tarayıcı), HTML sayfalarını istemek için web sunucusuna GET mesajı gönderir.
+* POST : Form verileri gibi veri dosyalarını web sunucusuna yükler.
+* PUT  : Bir resim gibi kaynakları veya içeriği web sunucusuna yükler.
+
+
+4. E-POSTA PROTOKOLLERİ
+A) SMTP (Simple Mail Transfer Protocol):
+   - Tanım: E-postaların gönderilmesini sağlayan temel protokoldür. 
+   - Çalışma Mantığı: Kullanıcı bir e-posta yazıp gönder tuşuna bastığında, ileti önce SMTP aracılığıyla gönderici cihazdan (örneğin Outlook, Gmail) mail sunucusuna iletilir, ardından alıcının mail sunucusuna aktarılır.
+   - Portlar: Varsayılan olarak TCP üzerinde çalışır ve genellikle 25, 465 veya 587 numaralı portları kullanır.
+   - Not: SMTP yalnızca gönderimden sorumludur; e-postaların alınması için POP3 veya IMAP gibi farklı protokoller devreye girer.
+
+B) POP3 (Post Office Protocol – Version 3):
+   - Tanım: E-postaların sunucudan alınıp istemciye indirilmesini sağlayan protokoldür.
+   - Çalışma Mantığı: POP3 kullanıldığında mailler genellikle bilgisayara veya telefona indirilir ve sunucudan silinir (isteğe bağlı olarak "sunucuda bırak" seçeneği açılabilir).
+   - Dezavantajı: Aynı hesabı birden fazla cihazda kullanmak için çok uygun değildir.
+   - Portlar: Varsayılan olarak TCP üzerinden 110 numaralı portu, güvenli bağlantıda ise 995 numaralı portu kullanır.
+
+C) IMAP (Internet Message Access Protocol):
+   - Tanım: E-postaların sunucu üzerinde saklanmasını ve istemcilerle senkronize edilmesini sağlar.
+   - Çalışma Mantığı: IMAP kullanıldığında mailler indirilmeyip sunucuda kalır; böylece farklı cihazlardan aynı posta kutusuna erişildiğinde tüm değişiklikler (okunma, silinme, klasörleme) eşzamanlı görünür.
+   - Avantajı: Günümüzde telefon, tablet ve bilgisayarın aynı anda e-posta kullanabilmesi için tercih edilmektedir.
+   - Portlar: TCP üzerinde 143 numaralı portu; güvenli bağlantı için ise 993 numaralı portu kullanır.
+
+
+5. FTP (FILE TRANSFER PROTOCOL)
+* Tanım: Ağ üzerinden dosya transferi yapmak için kullanılan bir protokoldür ve TCP/IP modelinde Uygulama Katmanında çalışır[cite: 7]. İstemci (client) ve sunucu (server) arasında dosyaların yüklenmesini (upload) ve indirilmesini (download) sağlar[cite: 7].
+* Komut Kanalı (Control Channel):
+  - Sunucuya hangi işlemin yapılacağını bildirir (Port 21 kullanılır)[cite: 8].
+  - İstemci, kontrol trafiği için sunucuya ilk bağlantıyı açar[cite: 8].
+* Veri Aktarımı:
+  - Aktarım her iki yönde de gerçekleşebilir[cite: 9, 10]:
+    * Sunucudan veri indirme: pull[cite: 9, 10]
+    * Sunucuya veri yükleme: push[cite: 9, 10]
+* Güvenlik:
+  - FTP, kullanıcı adı ve şifre ile oturum açmayı gerektirir; ancak varsayılan FTP şifreleri şifrelemez (güvenli değildir)[cite: 10].
+  - Bu nedenle günümüzde çoğunlukla FTPS (SSL/TLS ile güvenli FTP) veya SFTP (SSH üzerinden FTP benzeri transfer) tercih edilmektedir[cite: 10].

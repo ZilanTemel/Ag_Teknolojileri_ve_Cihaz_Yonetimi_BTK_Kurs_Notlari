@@ -1,0 +1,15 @@
+Temel IPv4 başlığı 20 byte'tır. Version, IHL, DSCP/ECN, Total Length, Identification, Flags, Fragment Offset, TTL, Protocol, Header Checksum, Source Address ve Destination Address gibi alanlar bulunur. Options varsa başlık uzar.
+
+IPv4 adres alanı 32 bit olduğu için adres uzayı sınırlıdır. Özel adresler, CIDR, NAT ve IPv6 gibi teknolojiler bu sınırlamaların yönetilmesinde rol oynar.
+
+NAT
+
+NAT, adresleri bir ağdan diğerine çevirir. En yaygın kullanım özel IPv4 adreslerinin Internet'te yönlendirilebilir bir genel IPv4 adresi üzerinden dışarı çıkmasıdır. PAT/NAT overload, birden fazla özel adresin port numaraları kullanılarak tek bir genel adresi paylaşmasını sağlar.
+
+Veri bağlantısı ve erişim
+
+PPP, HDLC gibi protokoller farklı veri bağlantısı senaryolarında kullanılmış/kullanılmaktadır.
+
+Half-duplex: İki yönlü iletişim vardır ancak aynı anda tek yön aktiftir.
+
+Full-duplex: İki yön aynı anda veri taşıyabilir.

@@ -1,0 +1,48 @@
+Taşıma katmanı uygulamalar arasında uçtan uca iletişimi sağlar. TCP segment, UDP datagram kavramları kullanılır.
+
+Port ve socket
+
+Port numarası, aynı cihazdaki ağ servislerini birbirinden ayırır. Socket, pratikte IP adresi + port ve ilgili taşıma protokolüyle tanımlanan iletişim uç noktasını ifade eder.
+
+Multiplexing: Birden fazla uygulamanın taşıma katmanı üzerinden aynı ağ bağlantısını paylaşabilmesi.
+
+netstat: Platforma göre aktif bağlantılar, dinlenen portlar ve ağ istatistiklerini gösterebilir.
+
+TCP başlığı
+
+Source Port / Destination Port: Kaynak ve hedef uygulamaları belirtir.
+
+Sequence Number: Veri sırasını takip eder.
+
+Acknowledgment Number: Alınması beklenen sonraki sıra numarasını belirtir.
+
+Header Length: TCP başlığının uzunluğunu belirtir.
+
+Flags: SYN, ACK, FIN, RST vb. kontrol bitleri bulunur.
+
+Window: Akış kontrolünde alıcının kabul edebileceği veri miktarını bildirir.
+
+Checksum: Başlık/veri bütünlüğünün kontrolünde kullanılır.
+
+Urgent Pointer: URG kullanımıyla ilişkili alandır; modern uygulamalarda yaygın değildir.
+
+Not: TCP minimum başlık boyutu 20 byte'tır; seçenekler varsa başlık daha uzun olabilir.
+
+TCP 3-way handshake
+
+İstemci SYN gönderir.
+
+Sunucu SYN + ACK gönderir.
+
+İstemci ACK gönderir ve bağlantı kurulmuş olur.
+
+TCP bağlantısının sonlandırılması
+
+Tipik sonlandırma iki yöndeki akışın ayrı ayrı kapatılması nedeniyle FIN/ACK değişimleriyle gerçekleşir. Basitleştirilmiş anlatımda dört segment görülür: FIN, ACK, FIN, ACK.
+
+UDP
+
+UDP bağlantısız ve düşük ek yüklü bir taşıma protokolüdür. Teslim, sıra ve yeniden iletim TCP'deki gibi garanti edilmez.
+
+UDP başlığı: Source Port, Destination Port, Length, Checksum.
+

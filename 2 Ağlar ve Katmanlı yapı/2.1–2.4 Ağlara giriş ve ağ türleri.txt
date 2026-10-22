@@ -1,0 +1,17 @@
+Bilgisayar ağı, cihazların iletişim kurmasını sağlayan bağlantılar ve protokoller bütünüdür. Ağlar kapsama alanına ve kullanım amacına göre sınıflandırılabilir.
+
+PAN: Kişisel alan ağı.
+
+LAN: Yerel alan ağı; ev, ofis veya bina gibi sınırlı bir alandır.
+
+WLAN: Kablosuz yerel alan ağı.
+
+MAN: Şehir/metropol ölçeğinde ağ.
+
+WAN: Geniş coğrafi alanları birbirine bağlayan ağ.
+
+Internet: Birçok bağımsız ağın birbirine bağlandığı küresel ağlar bütünü.
+
+Intranet: Kurum içindeki özel ağ.
+
+Extranet: Yetkilendirilmiş dış kullanıcıların da erişebildiği özel ağ

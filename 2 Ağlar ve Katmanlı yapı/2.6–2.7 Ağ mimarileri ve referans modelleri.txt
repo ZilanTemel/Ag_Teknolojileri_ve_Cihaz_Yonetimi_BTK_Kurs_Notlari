@@ -1,0 +1,1 @@
+Ağ mimarisi; cihazların ve protokollerin birlikte çalışmasını sağlayan katmanlı yapı ve kurallar bütünüdür. SNA, IBM tarafından geliştirilen tarihsel bir ağ mimarisidir. TCP/IP ise ARPANET ve Internet'in gelişimiyle yaygınlaşan protokol ailesidir. OSI modeli ISO tarafından standartlaştırılmış yedi katmanlı referans modelidir.

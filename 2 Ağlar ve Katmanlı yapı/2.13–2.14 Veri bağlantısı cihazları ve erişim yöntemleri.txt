@@ -1,0 +1,97 @@
+VERİ BAĞLANTI KATMANI PROTOKOLLERİ (WAN - GENİŞ ALAN AĞI AĞIRLIKLI)
+
+1. WAN Veri Bağlantı Protokolleri ve Standartları
+
+PPP (Point-to-Point Protocol)
+* Açıklama: Noktadan noktaya bağlantılarda (modem, seri hat) kullanılan kapsülleme protokolüdür.
+* Standartlaştıran Kurum: IETF
+* Özellikler: Şifreleme ve kimlik doğrulama (PAP, CHAP) mekanizmalarını destekler.
+
+HDLC (High-Level Data Link Control)
+* Açıklama: Noktadan noktaya ve çoklu noktadan noktaya bağlantılarda kullanılan bit yönelimli protokoldür.
+* Standartlaştıran Kurum: ISO
+* Özellikler: Senkron ve asenkron haberleşme, hata kontrolü ve çerçeveleme sağlar.
+
+Frame Relay
+* Açıklama: WAN üzerinde kullanılan paket anahtarlama teknolojisidir.
+* Standartlaştıran Kurum: ITU-T
+* Özellikler: Düşük gecikme ve yüksek verimlilik sunar.
+
+ATM (Asynchronous Transfer Mode)
+* Açıklama: Hücre tabanlı (53 byte sabit boyutlu hücreler) veri aktarımı yapar; ses, video ve veri aktarımı için kullanılır.
+* Standartlaştıran Kurum: ITU-T
+* Özellikler: Servis Kalitesi (QoS) desteği sunar; WAN ve telekom ağlarında yaygındır.
+
+LAP-B (Link Access Procedure, Balanced)
+* Açıklama: X.25 ağlarında veri bağlantı katmanı protokolü olarak kullanılır.
+* Standartlaştıran Kurum: ITU-T
+* Özellikler: Hata kontrolü ve çerçeve senkronizasyonu görevlerini yürütür.
+
+
+2. Ağ Standartlarını Belirleyen Kuruluşlar
+
+IEEE (Institute of Electrical and Electronics Engineers)
+* Rolü: Özellikle LAN ve WLAN standartlarını (802.x ailesi) geliştirir.
+* Örnek Standartlar: Ethernet (802.3), Wi-Fi (802.11), Token Ring (802.5).
+
+ISO (International Organization for Standardization)
+* Rolü: Uluslararası standartları belirler.
+* Örnek Geliştirmeler: HDLC ve OSI başvuru modeli gibi mimarileri geliştirmiştir.
+
+ITU-T (International Telecommunication Union - Telecommunication Standardization Sector)
+* Rolü: Telekomünikasyon standartlarını geliştirir.
+* Örnek Standartlar: X.25, Frame Relay, ATM, DSL gibi WAN teknolojileri.
+
+ANSI (American National Standards Institute)
+* Rolü: ABD'de ulusal standartları belirler.
+* Örnek Etkileri: FDDI gibi veri bağlantı protokollerinde etkilidir.
+
+IETF (Internet Engineering Task Force)
+* Rolü: İnternet protokollerini belirler.
+* Örnek Standartlar: PPP, L2TP gibi veri bağlantı katmanı protokollerini standartlaştırmıştır.
+
+
+3. Veri Bağlantı Katmanında İletim Yöntemleri (Duplex Modları)
+
+Half Duplex (Yarı Çift Yönlü)
+* Tanım: Veri her iki yönde de iletilebilir ancak aynı anda aktarım yapılamaz.
+* Çalışma Mantığı: Önce bir taraf veriyi gönderir, diğer taraf bekler; ardından süreç tersine döner.
+* Örnek: Telsiz haberleşmesi ("over" mantığı).
+
+Full Duplex (Tam Çift Yönlü)
+* Tanım: Veri aynı anda her iki yönde de eşzamanlı olarak iletilebilir.
+* Performans: İletim performansı açısından en verimli yöntemdir.
+* Örnekler: Telefon görüşmeleri, modern Ethernet bağlantıları.
+
+
+4. Veri Bağlantı Katmanında Çalışan Cihazlar
+
+Switch (Anahtar)
+* Görevi: Gelen çerçevedeki (frame) MAC adresini okuyarak veriyi yalnızca ilgili hedef porta iletir.
+* Özellikleri: En yaygın 2. katman cihazıdır. Çakışmaları (collision) önler, ağ trafiğini azaltır. Hem Layer 2 hem de Layer 3 (IP yönlendirmeli) modelleri bulunur.
+
+Bridge (Köprü)
+* Görevi: Küçük ağları birbirine bağlar; MAC adres tablosu tutarak çerçeveleri yönlendirir.
+* Özellikleri: Switch'in öncülüdür. Basit ağ segmentasyonu sağlar ve çakışma alanlarını (collision domains) ayırır.
+
+Access Point (Kablosuz Erişim Noktası)
+* Görevi: Kablosuz cihazların ağa bağlanmasını sağlar; kablosuz ağ ile kablolu ağ arasında köprü kurar.
+* Özellikleri: Veri bağlantı katmanında çalışır, MAC adreslerini yönetir ve bir köprü (bridge) gibi davranır.
+
+Modem (Katmanlar Arası)
+* Görevi: Farklı iletim ortamlarına sahip ağ türlerini (örneğin DSL hattı ile yerel Ethernet) birbirine bağlar.
+* Özellikleri: Temelde fiziksel katmanda (1. katman) çalışır; ancak DSL modem gibi türleri 2. katman protokollerini (PPP, PPPoE) desteklediğinden hem fiziksel hem de veri bağlantı görevlerini üstlenebilir.
+
+
+5. Çoklu Erişim ve Ortam Paylaşım Yöntemleri
+
+CSMA/CD (Carrier Sense Multiple Access / Collision Detection)
+* Kullanım Alanı: Ethernet (kablolu) ağlarda kullanılır.
+* Dinleme (Carrier Sense): Cihaz iletime başlamadan önce hattı dinler; ortam boşsa veriyi gönderir.
+* Çakışma Algılama (Collision Detection): Birden fazla cihaz aynı anda hatta veri gönderirse çakışma oluşur. Cihazlar bu çakışmayı algılar, iletimi keser ve rastgele bir süre (backoff) bekleyip tekrar dener.
+
+CSMA/CA (Carrier Sense Multiple Access with Collision Avoidance)
+* Kullanım Alanı: Kablosuz ağlarda (Wi-Fi) kullanılır.
+* Amaç: Kablosuz ortamın yapısı nedeniyle çakışmayı tespit etmek (detection) zor olduğu için çakışmayı baştan önlemeye (avoidance) çalışır.
+* Çalışma Modu: Yalnızca bir cihazın aynı anda iletim yapabildiği yarı çift yönlü (half-duplex) modda çalışır.
+* Süreç: Bir cihazın ne zaman veri aktarabileceğini ve birden fazla cihaz aynı anda istekte bulunduğunda ortamın nasıl paylaşılacağını düzenleyen bir çarpışma önleme mekanizması kullanır.

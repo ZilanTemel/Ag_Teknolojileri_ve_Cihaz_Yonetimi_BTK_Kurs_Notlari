@@ -1,0 +1,5 @@
+AĞ TEKNOLOJİLERİ VE CİHAZ YÖNETİMİ ÇALIŞMA NOTLARI
+
+Bu repoda, BTK Akademi "Ağ Teknolojileri ve Cihaz Yönetimi" eğitimi boyunca tuttuğum ders notları, konu özetleri ve teknik çalışmalar yer almaktadır. 
+
+Eğitim sürecinde öğrendiğim teorik bilgileri, protokolleri ve cihaz yönetimine dair notları düzenli bir arşiv haline getirmek amacıyla oluşturulmuştur. Kurs ilerledikçe yeni başlıklar ve notlar eklenmeye devam edecektir.
