@@ -1,0 +1,24 @@
+3.2 Uç Cihaz 
+   
+
+Uç cihazlarda ağ iletişimi, yapılandırması ve sorun giderme işlemleri için Windows ve Linux işletim sistemlerinde çeşitli komutlar kullanılır.   
+
+
+1. Bağlantı Testi Komutları
+Başka bir cihazla olan iletişimi test etmek için ping komutu kullanılır. Ağ paketlerinin hedefe ulaşırken geçtiği rotayı görüntülemek için Windows ortamında tracert, Linux ortamında ise traceroute komutundan yararlanılır.   
+
+
+2. IP Yapılandırma Komutları
+Mevcut IP yapılandırma ayrıntılarını tam olarak listelemek için Windows sistemlerde ipconfig /all çalıştırılır. Linux sistemlerde aynı yapılandırma bilgilerini görüntülemek adına ifconfig veya ip addr show komutları kullanılır.   
+
+
+3. Adres Tabloları
+Ağdaki cihazların IP ve MAC adres eşleşmelerini tutan ARP tablosunu ekrana getirmek için arp -a komutu kullanılır.   
+
+
+4. Bağlantı ve Port Durumu
+Sistem üzerindeki etkin ağ bağlantılarını ve aktif port kullanımlarını incelemek amacıyla netstat komutuna başvurulur.   
+
+
+5. DNS ve İsim Çözümleme İşlemleri
+DNS sorgusu gerçekleştirmek için nslookup  kullanılırken, Linux üzerinde daha ayrıntılı DNS sorguları yapmak için dig  komutu tercih edilir. Yapılan çözümlemeler cihazın önbelleğine (DNS Resolver Cache) kaydedilir. Windows ortamında bu önbelleği görüntülemek için ipconfig /displaydns, önbelleği sıfırlayıp temizlemek için ise ipconfig /flushdns komutu girilir. Önbellekteki kayıtların saklama süresi (TTL) genellikle 1 dakika ile 1 gün arasında değişir ve süre dolduğunda cihaz yeniden DNS sorgusu yapar.   

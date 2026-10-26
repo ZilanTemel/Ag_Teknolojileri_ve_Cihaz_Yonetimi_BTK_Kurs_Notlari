@@ -1,0 +1,17 @@
+ 3.1 Ağda Hiyerarşik Yapı (Üç Katmanlı Ağ Mimarisi)
+
+
+
+Ağ trafiğini düzenlemek, güvenliği ve iletim hızını optimize etmek amacıyla üç katmanlı bir mimari kullanılır.
+
+1. Access Layer (Erişim Katmanı)
+Bilgisayar, yazıcı ve IP telefon gibi uç kullanıcı cihazlarının ağa fiziksel olarak bağlandığı ilk noktadır. Bu katmanın başlıca görevleri son kullanıcıları ağa bağlamak, VLAN erişimini sağlamak ve port güvenliği ile MAC filtreleme gibi temel güvenlik denetimlerini gerçekleştirmektir.
+
+2. Distribution Layer (Dağıtım Katmanı)
+Erişim katmanından gelen ağ trafiğini toplayıp çekirdek katmanına iletilmesini yöneten ara katmandır. Bu katmanda genellikle Layer 3 switch veya router cihazları görev yapar. VLAN'lar arası yönlendirme (routing), ACL ve QoS gibi politika uygulamaları ile yük dengeleme ve yedeklilik süreçleri burada yürütülür.
+
+3. Core Layer (Çekirdek Katman)
+Ağın ana omurgasıdır (backbone) ve kampüsler ya da binalar arasındaki geniş veri trafiğini taşır. Yüksek performanslı router ve core switch'lerin bulunduğu bu katmanda hız ön planda tutulduğu için fazla filtreleme yapılmaz; bunun yerine çok hızlı iletim ve yüksek yedeklilik (redundancy) sağlanmasına odaklanılır.
+
+Uç Cihaz Adreslemesi
+İstemci cihazların bu hiyerarşik yapıya fiziksel olarak bağlanabilmesi adına bir ağ arabirim kartına (NIC) sahip olması ve işletim sistemi üzerinde gerekli ağ yapılandırmalarının tamamlanmış olması gerekir.
