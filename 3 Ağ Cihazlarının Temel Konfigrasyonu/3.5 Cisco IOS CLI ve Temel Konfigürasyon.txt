@@ -1,0 +1,28 @@
+3.5 CISCO IOS CLI VE TEMEL GÜVENLİK KONFİGÜRASYONU
+
+BANNER (GİRİŞ UYARI MESAJI)
+banner motd : Cihaza bağlanıldığında ekrana çıkacak yasal uyarı mesajıdır.
+Sınırlayıcı Karakter Mantığı : Mesaja hangi karakterle başlandıysa (örneğin #, *, ^C) mesajın sonu da tam olarak aynı karakterle kapatılmalıdır. Aksi halde switch komutu sonlandırmaz.
+Örnek : banner motd ^CSadece yetkili personel giris iznine sahiptir.^C
+
+GÜVENLİK VE ŞİFRELEME KOMUTLARI
+enable secret : Switch# (ayrıcalıklı) moduna geçişe şifre koyar. MD5/SHA ile güçlü şifrelenir.
+service password-encryption : running-config içindeki tüm düz metin (cleartext) şifreleri Type 7 formatında geri döndürülemez şekilde şifreler.
+
+HAT (LINE) VE ERİŞİM GÜVENLİĞİ
+line con 0 : Switch'in fiziksel konsol portu arayüzüne girer.
+line vty 0 4 ve line vty 5 15 : Ağ üzerinden uzaktan yönetim (Telnet/SSH) için sanal hatlara girer.
+password : İlgili hatta (konsol veya vty) giriş şifresi atar.
+login : Belirlenen şifrenin bağlantı anında kullanıcıya sorulmasını aktif eder. Bu komut girilmezse şifre sormaz.
+exec-timeout 5 0 : Belirtilen süre boyunca (dakika saniye) işlem yapılmazsa oturumu otomatik kapatır. Güvenlik ve oturum kilitlenmelerini önlemek içindir.
+logging synchronous : Komut yazarken araya giren sistem bildirim mesajlarının (logların) yazılan komutu bölmesini engeller, komut satırını alta temiz şekilde düşürür.
+
+BELLEK VE DOSYA İNCELEME
+show flash : Flash belleğin boyutunu, boş alanını ve içinde saklanan IOS imaj dosyasının adını listeler.
+
+TFTP SUNUCUYA YEDEK ALMA VE GERİ YÜKLEME
+copy running-config tftp: : RAM'de çalışan güncel ayarları ağdaki bir TFTP sunucusuna yedek olarak gönderir.
+copy startup-config tftp: : NVRAM'deki başlangıç ayarlarını TFTP sunucusuna gönderir.
+Adres Tanımlama : Komut girildiğinde 'Address or name of remote host []?' sorusuna TFTP sunucusunun IP adresi girilir.
+Dosya İsmi : 'Destination filename []?' sorusuna TFTP sunucusuna kaydedilecek dosya adı girilir ve yedekleme tamamlanır.
+TFTP'den Cihaza Çekme : Sunucudaki yedeği switch'e yüklemek için yön tersine çevrilir: 'copy tftp: running-config' veya 'copy tftp: flash:'.
