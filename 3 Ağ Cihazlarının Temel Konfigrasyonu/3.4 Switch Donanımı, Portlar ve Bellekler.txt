@@ -1,0 +1,43 @@
+3.4 SWITCH TEMEL KOMUTLARI, FİZİKSEL VE MANTIKSAL ARAYÜZLER
+
+MODLAR VE GEÇİŞLER
+Switch> : Kullanıcı modu. Yetki kısıtlıdır.
+enable : Ayrıcalıklı moda (Switch#) geçiş komutudur.
+Switch# : Yönetici modu. Görüntüleme, test ve kayıt yapılır.
+configure terminal : Global konfigürasyon moduna geçer. Kısayolu conf t.
+Switch(config)# : Cihaz geneli ayarların yapıldığı moddur.
+Switch(config-if)# : Alt moddur (subconfig). Belirli bir fiziksel porta veya sanal VLAN arayüzüne girildiğinde açılır.
+exit : Bir önceki moda geri döndürür.
+end veya Ctrl+Z : Bulunulan alt mod fark etmeksizin doğrudan Switch# moduna atar.
+do : Alt modlardayken en başa dönmeden show, ping, write gibi yönetici komutlarını çalıştırma ön ekidir.
+
+TEMEL KOMUTLAR VE ANLAMLARI
+clock set : Cihazın tarih ve saatini ayarlar.
+hostname : Cihaza isim verir.
+no hostname : İsim ayarını siler, varsayılana döndürür.
+no ip domain-lookup : Hatalı komut yazıldığında switch'in bunu alan adı sanıp ağda aramasını ve terminali kilitlemesini engeller.
+copy running-config startup-config : RAM'deki çalışan ayarları kalıcı olarak NVRAM'e kaydeder. Kısayolu copy run start.
+write memory : Konfigürasyonu NVRAM'e kaydetmenin pratik yoludur. Kısayolu wr veya alt modda do wr me.
+
+FİZİKSEL VE MANTIKSAL ARAYÜZ MANTIĞI
+Fiziksel Portlar (Fa0/1 - Fa0/24):
+- Layer 2 (Katman 2) seviyesinde çalışır.
+- Görevi sadece sinyali ve MAC adresini okuyup hedef porta anahtarlamaktır.
+- Yönlendirme ve IP paketi işleme mantığı bulunmaz.
+- Bu sebeple fiziksel 24 portun altına doğrudan IP adresi verilemez, hata verir.
+
+Mantıksal Arayüz (Vlan 1 / SVI):
+- Switch Virtual Interface olarak geçer, switch'in dahili sanal ağ kartıdır.
+- Switch ağda bir istemci veya sunucu gibi davranıp uzaktan (SSH, Telnet, Ping) yönetilebilsin diye kullanılır.
+- Switch üzerindeki tüm fiziksel portlar varsayılan olarak Vlan 1'e bağlıdır; bu sayede hangi porta takılırsan tak bu IP üzerinden yönetim sağlanır.
+
+YÖNETİM IP'Sİ ATAMA KOMUTLARI
+interface vlan 1 : Mantıksal yönetim arayüzünün alt moduna girer.
+no shutdown : Varsayılan olarak kapalı (administratively down) gelen sanal arayüzü aktif eder.
+ip address : Arayüze IP ve alt ağ maskesi tanımlar. /32 (255.255.255.255) tekil adres maskesi girilemez, geçerli bir ağ maskesi verilmelidir.
+
+TEST VE İZLEME KOMUTLARI
+show ip interface brief : Tüm portların IP adresi, fiziksel kablo (Status) ve mantıksal hat protokolü (Protocol) durumunu listeler. Kısayolu sh ip int br.
+administratively down : Portun komutla elle kapatıldığını gösterir.
+ping : Hedef cihaza ICMP paketi atarak bağlantı testi yapar.
+.!!!! çıktısı : İlk noktanın sebebi switch'in hedef MAC adresini öğrenmek için attığı ARP isteğidir. Kalan ünlemler başarılı paket iletimini gösterir.
