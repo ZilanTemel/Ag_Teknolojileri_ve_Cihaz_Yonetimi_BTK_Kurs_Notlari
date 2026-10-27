@@ -1,0 +1,31 @@
+1. GENEL BİLGİ VE KATMAN
+- LAN (Yerel Alan Ağı) içinde bilgisayar, yazıcı, IP telefon ve access point gibi uç cihazları birbirine bağlar.
+- OSI Modeli: 2. Katman (Data Link Layer - Veri Bağlantı Katmanı) cihazıdır.
+- Veri Birimi (PDU): Çerçeve (Frame) ile çalışır.
+
+2. TEMEL ÇALIŞMA MEKANİZMASI (LEARN & FORWARD)
+- Learning (Öğrenme): 
+   Gelen frame'in "Kaynak MAC (Source MAC)" adresine bakar.
+   Bu adresi ve geldiği port numarasını MAC Adres Tablosuna (CAM Table) kaydeder (Örn: MAC A -> Port 1).
+- Forwarding (İletme):
+   Gelen frame'in "Hedef MAC (Destination MAC)" adresine bakar.
+   Adres tabloda varsa - Yalnızca ilgili porta iletir (Unicast).
+   Adres tabloda yoksa - Flooding yapar (Gelen port hariç tüm aktif portlara basar). Hedef cevap verince adresini öğrenip tabloya ekler.
+
+3. İŞLEVLER VE HATA YÖNETİMİ
+- Hata Düzeltme: Switch'ler hata DÜZELTMEZ. Sadece hata tespit eder (FCS/CRC); hatalı frame'i doğrudan çöpe atar (drop).
+- Hata düzeltme işi Layer 4 (TCP) veya Uygulama Katmanında yapılır.
+- Kuyruk (Buffer) Yönetimi: Aşırı trafik durumunda (congestion) switch'in tampon belleği (buffer) dolarsa gelen frame'ler düşürülür (drop).
+
+4. SWITCH (L2) vs HUB KARŞILAŞTIRMASI
+Özellik              Hub                           Switch (L2)
+
+OSI Katmanı          Layer 1 (Fiziksel)            Layer 2 (Veri Bağlantı)
+Çalışma Mantığı      Sinyali güçlendirip yayar     Hedef MAC'e bakar, ilgili porta iletir
+Akıllılık Durumu     Aptal cihaz (MAC bilmez)      Akıllı cihaz (CAM tablosu tutar)
+Collision Domain     Tüm portlar TEK domain        HER PORT AYRI bir collision domain
+Broadcast Domain     Tek broadcast domain          Tek broadcast domain (L3 yoksa)
+Hız ve Trafik        Yoğunlukta aşırı yavaşlar     Sadece hedefe ilettiği için hızlı
+Duplex Desteği       Sadece Half-Duplex            Hem Half hem Full-Duplex destekler
+Bant Genişliği       Paylaşımlı bant genişliği     Her porta özel tam bant genişliği
+Kullanım Durumu      Eski teknoloji (tarih oldu)   Güncel standart ağ cihazı
