@@ -1,0 +1,105 @@
+3.6 ROUTER VE TEMEL AG KAVRAMLARI
+
+
+
+1. ROUTER (YONLENDIRICI CIHAZ) NEDIR VE GOREVI
+
+* OSI modelinde 3. katmanda (Network / Ag Katmani) calisir.
+
+* En basit tanimiyla: Aglari aglara baglayan cihazdir.
+
+* Farkli aglar (network'ler) arasindaki veri paketlerini yonlendirir.
+
+* Hangi veri paketinin hangi yoldan gitmesi gerektigine karar verir ve veriyi en uygun yoldan hedefe ulastirir.
+
+* Paket formatinda calisir (L2'de Frame iken L3'te Packet olarak islenir).
+
+
+
+2. ROUTER TEMEL BILESENLERI VE CALISMA PRENSIBI
+
+* Packet Forwarding (Paket Iletme): 
+
+  - Hedef IP adresine bakar.
+
+  - Yonlendirme tablosuna (Routing Table) gore en uygun cikis arabirimini (interface) secer.
+
+* Routing Table (Yonlendirme Tablosu): 
+
+  - Aglarin ve ulasilabilir yollarin bilgisini tutar.
+
+  - Iki sekilde olusabilir:
+
+    - Statik: Elle girilmis rotalar.
+
+    - Dinamik: Yonlendirme protokolleri ile otomatik ogrenilmis rotalar.
+
+* Routing Protokolleri:
+
+  - Distance Vector -> Ornek: RIP
+
+  - Link State -> Ornek: OSPF, IS-IS
+
+  - Path Vector -> Ornek: BGP
+
+
+
+3. ROUTER VS SWITCH KARSILASTIRMASI
+
+* Calistigi Katman:
+
+  - Switch: Data Link (L2)
+
+  - Router: Network (L3)
+
+* Karar Mekanizmasi:
+
+  - Switch: MAC adresi
+
+  - Router: IP adresi
+
+* Collision Domain (Carpisma Alani):
+
+  - Switch: Her port ayri bir collision domain'dir.
+
+  - Router: Her port ayri bir collision domain'dir.
+
+* Broadcast Domain (Yayin Alani):
+
+  - Switch: Tek broadcast domain (VLAN yapilandirmasi yoksa tum portlar ayni alandadir).
+
+  - Router: Her port ayri bir broadcast domain'dir (Broadcast yayinlarini gecirmez, aglari boler).
+
+* Temel Gorev Ozet:
+
+  - Switch: Ayni ag icindeki cihazlari birbirine baglayan "yerel dagitici".
+
+  - Router: Aglarin birbirine kopru kuran "beyni".
+
+
+
+4. COLLISION DOMAIN VE HUB OZELLIKLERI
+
+* Hub Ozellikleri:
+
+  - Mesajin kimden gelip kime gittigini anlamaz.
+
+  - Trafigin iletilecegi yere karar verme yetenegi yoktur.
+
+  - Gelen paketi incelemez, bozuk olup olmadigina bakmaz.
+
+  - Paketi diger tum aktif interface'lerinden disari basar.
+
+  - Half-duplex (yari cift yonlu) calisir.
+
+  - Tek bir collision domain olusturur (carpisma riski yuksektir).
+
+
+
+5. CIHAZLARIN BROADCAST DOMAIN'E ETKISI OZET
+
+* Hub: Yayini herkese iletir -> Tek domain.
+
+* Switch: VLAN yapilandirilmamissa tum portlar tek bir broadcast domain icindedir.
+
+* Router: Broadcast domain'leri birbirinden ayirir (Broadcast paketlerini durdurur).
